@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng8-material": [
+        "dist/ng8-material"
+      ],
+      "ng8-material/*": [
+        "dist/ng8-material/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
