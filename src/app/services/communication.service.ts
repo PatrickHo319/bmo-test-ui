@@ -8,10 +8,9 @@ import { Person } from '../models/Person';
 })
 export class CommunicationService {
 
-  constructor(http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   getCitizens(): Observable<Person[]> {
-    console.log("called getCitizens");
-    return null;
+    return this.httpClient.get<Person[]>(`./api/citizens`);
   }
 }

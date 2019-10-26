@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Person, Geneder } from '../models/Person';
 import { CommunicationService } from '../services/communication.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-citizens',
@@ -10,22 +11,16 @@ import { CommunicationService } from '../services/communication.service';
 })
 export class CitizensComponent implements OnInit {
   displayedColumns: string[] = ['firstName', 'lastName', 'age', 'gender'];
-  citizens: Person[] = [
-    {
-      firstName: "John",
-      lastName: "Smith",
-      age: 20,
-      gender: Geneder.Male
-    }
-  ];
+  citizens: Observable<Person[]>;
 
   constructor(private communicationService: CommunicationService) { }
 
   ngOnInit() {
+    this.citizens = this.communicationService.getCitizens();
   }
 
   searchClick() {
     console.log("searchClick");
-    this.communicationService.getCitizens();
+
   }
 }
