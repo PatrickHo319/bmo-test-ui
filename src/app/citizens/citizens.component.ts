@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Person, Geneder } from '../models/Person';
+import { Person } from '../models/Person';
 import { CommunicationService } from '../services/communication.service';
 import { Observable } from 'rxjs';
 
@@ -10,10 +10,10 @@ import { Observable } from 'rxjs';
   providers: [CommunicationService]
 })
 export class CitizensComponent implements OnInit {
-  displayedColumns: string[] = ['firstName', 'lastName', 'age', 'gender'];
+  displayedColumns: string[] = ['firstName', 'lastName'];
   citizens: Observable<Person[]>;
-  firstName: String;
-  lastName: String;
+  firstName: string;
+  lastName: string;
 
   constructor(private communicationService: CommunicationService) { }
 

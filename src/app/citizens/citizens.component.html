@@ -1,4 +1,3 @@
-<p>citizens works!</p>
 <input type="text" placeholder="By First Name" [(ngModel)]="firstName" />
 <input type="text" placeholder="By Last Name" [(ngModel)]="lastName" />
 <button (click)="searchClick()" type="submit">Search</button>
@@ -11,16 +10,6 @@
     <ng-container matColumnDef="lastName">
         <th mat-header-cell *matHeaderCellDef> Last Name </th>
         <td mat-cell *matCellDef="let person"> {{person.lastName}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="age">
-        <th mat-header-cell *matHeaderCellDef> Age </th>
-        <td mat-cell *matCellDef="let person"> {{person.age}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="gender">
-        <th mat-header-cell *matHeaderCellDef> Gender </th>
-        <td mat-cell *matCellDef="let person"> {{person.gender}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
