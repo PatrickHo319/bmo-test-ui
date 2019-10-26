@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Person } from '../models/Person';
 
@@ -7,10 +7,25 @@ import { Person } from '../models/Person';
   providedIn: 'root'
 })
 export class CommunicationService {
-
   constructor(private httpClient: HttpClient) { }
 
-  getCitizens(): Observable<Person[]> {
-    return this.httpClient.get<Person[]>(`./api/citizens`);
+  getCitizens(firstName: string = null, lastName: string = null): Observable<Person[]> {
+    return this.httpClient.get<Person[]>(`./api/citizens`, {
+      params: this.getHttpParams(firstName, lastName)
+    });
+  }
+
+  private getHttpParams(firstName: string, lastName: string): any {
+    const params = {};
+
+    if (firstName) {
+      params["firstName"] = firstName;
+    }
+
+    if (lastName) {
+      params["lastName"] = lastName;
+    }
+
+    return params;
   }
 }

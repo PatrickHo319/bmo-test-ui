@@ -12,6 +12,8 @@ import { Observable } from 'rxjs';
 export class CitizensComponent implements OnInit {
   displayedColumns: string[] = ['firstName', 'lastName', 'age', 'gender'];
   citizens: Observable<Person[]>;
+  firstName: String;
+  lastName: String;
 
   constructor(private communicationService: CommunicationService) { }
 
@@ -20,7 +22,6 @@ export class CitizensComponent implements OnInit {
   }
 
   searchClick() {
-    console.log("searchClick");
-
+    this.citizens = this.communicationService.getCitizens(this.firstName, this.lastName);
   }
 }

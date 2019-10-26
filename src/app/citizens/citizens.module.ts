@@ -5,6 +5,7 @@ import { CitizensRoutingModule } from './citizens-routing.module';
 import { CitizensComponent } from './citizens.component';
 import { CommunicationService } from '../services/communication.service';
 import { MatTableModule } from '@angular/material/table';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [CitizensComponent],
@@ -12,6 +13,7 @@ import { MatTableModule } from '@angular/material/table';
     CommonModule,
     CitizensRoutingModule,
     MatTableModule,
+    FormsModule,
   ]
 })
 export class CitizensModule { }

@@ -1,6 +1,7 @@
 <p>citizens works!</p>
-<input type="text" placeholder="Search by First or Last Name" />
-<button (click)="searchClick()">Search</button>
+<input type="text" placeholder="By First Name" [(ngModel)]="firstName" />
+<input type="text" placeholder="By Last Name" [(ngModel)]="lastName" />
+<button (click)="searchClick()" type="submit">Search</button>
 <table mat-table [dataSource]="citizens | async" class="mat-elevation-z8">
     <ng-container matColumnDef="firstName">
         <th mat-header-cell *matHeaderCellDef> First Name </th>
