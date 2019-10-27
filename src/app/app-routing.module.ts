@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: 'citizen-list', loadChildren: () => import('./citizens/citizens.module').then(m => m.CitizensModule) }, { path: 'citizen-list', loadChildren: () => import('./citizens/citizens.module').then(m => m.CitizensModule) },
-  { path: '', redirectTo: '/citizen-list', pathMatch: 'full' },
+  { path: 'citizens', loadChildren: () => import('./citizens/citizens.module').then(m => m.CitizensModule) }, { path: 'citizens', loadChildren: () => import('./citizens/citizens.module').then(m => m.CitizensModule) },
+  { path: '', redirectTo: '/citizens', pathMatch: 'full' },
 ];
 
 @NgModule({
