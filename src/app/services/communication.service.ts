@@ -8,6 +8,7 @@ import { filter } from 'minimatch';
   providedIn: 'root'
 })
 export class CommunicationService {
+  readonly citizensUrl = './api/citizens';
   private subject: Subject<Person[]> = new ReplaySubject<Person[]>(1)
   constructor(private httpClient: HttpClient) { }
 
@@ -20,7 +21,7 @@ export class CommunicationService {
   }
 
   updateCitizens(firstName: string = null, lastName: string = null) {
-    this.httpClient.get<Person[]>(`./api/citizens`, {
+    this.httpClient.get<Person[]>(this.citizensUrl, {
       params: this.getHttpParams(firstName, lastName)
     }).subscribe(citizens => this.subject.next(citizens));
   }
