@@ -2,4 +2,4 @@
 <input type="text" placeholder="By Last Name" [(ngModel)]="lastName" />
 <button (click)="searchClick()" type="submit">Search</button>
 
-<app-citizens></app-citizens>
+<app-citizen-list [citizens]="citizens"></app-citizen-list>

@@ -7,14 +7,14 @@ import { Observable } from 'rxjs';
   selector: 'app-citizens',
   templateUrl: './citizens.component.html',
   styleUrls: ['./citizens.component.css'],
+  providers: [CommunicationService]
 })
 export class CitizensComponent implements OnInit {
-  displayedColumns: string[] = ['firstName', 'lastName'];
   citizens: Observable<Person[]>;
 
   constructor(private communicationService: CommunicationService) { }
 
   ngOnInit() {
-    this.citizens = this.communicationService.getCitizens();
+    this.citizens = this.communicationService.getCitizens(true);
   }
 }

@@ -7,15 +7,15 @@ import { CommunicationService } from '../services/communication.service';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { CitizenSearchComponent } from './citizen-search/citizen-search.component';
+import { CitizenListComponent } from './citizen-list/citizen-list.component';
 
 @NgModule({
-  declarations: [CitizensComponent, CitizenSearchComponent],
+  declarations: [CitizensComponent, CitizenSearchComponent, CitizenListComponent],
   imports: [
     CommonModule,
     CitizensRoutingModule,
     MatTableModule,
     FormsModule,
-  ],
-  providers: [CommunicationService]
+  ]
 })
 export class CitizensModule { }

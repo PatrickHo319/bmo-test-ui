@@ -11,13 +11,15 @@ export class CommunicationService {
   private subject: Subject<Person[]> = new ReplaySubject<Person[]>(1)
   constructor(private httpClient: HttpClient) { }
 
-  getCitizens(firstName: string = null, lastName: string = null): Observable<Person[]> {
-    this.updateCitizens(firstName, lastName);
+  getCitizens(initLoad: boolean): Observable<Person[]> {
+    if (initLoad) {
+      this.updateCitizens();
+    }
 
     return this.subject.asObservable();
   }
 
-  updateCitizens(firstName: string, lastName: string) {
+  updateCitizens(firstName: string = null, lastName: string = null) {
     this.httpClient.get<Person[]>(`./api/citizens`, {
       params: this.getHttpParams(firstName, lastName)
     }).subscribe(citizens => this.subject.next(citizens));
